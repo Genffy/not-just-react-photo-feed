@@ -5,10 +5,10 @@ module.exports = {
     devtool: 'eval',
 	entry: {
 		basic: "./src/basic/app.js",
-		// react: "./src/react/app.js",
+		react: "./src/react/app.js",
 		// ng: "./src/angular/app.js",
 		// ng2: "./src/angular2/app.js",
-		// vue: "./src/vue/app.js"	
+		vue: "./src/vue/app.js"	
 	},
     output: {
         filename: "[name].bundle.js",
@@ -29,7 +29,11 @@ module.exports = {
                 test: /\.css/,
                 include: path.join(__dirname, 'src'),
                 loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]'
-            }
+            },
+            {
+                test: /\.vue$/,
+                loader: 'vue'
+            },
         ]
     }
 }

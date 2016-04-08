@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
     <title>Flickr/Yandex Public Feed</title>
 </head>
 <body>
-<div id="container"></div>
-<script src="bundle.js"></script>
+
+<h1>angularjs</h1>
+<div ng-app="angular" ng-controller="mainCtr">
+	<p ng-bind="message"></p>
+	<input type="text" ng-model="message">
+</div>
+
+<h1>react</h1>
+<div id="react"></div>
+
+<h1>Vue</h1>
+<div id="vue">
+  <p>{{ message }}</p>
+  <input v-model="message">
+</div>
+<script src="basic.bundle.js"></script>
 </body>
 </html>

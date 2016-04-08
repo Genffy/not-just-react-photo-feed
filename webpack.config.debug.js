@@ -1,15 +1,19 @@
 var path = require('path');
 var webpack = require('webpack');
 
-
 module.exports = {
     devtool: 'eval',
-    entry: [
-        './src/app.js'
-    ],
+	entry: {
+		basic: "./src/basic/app.js",
+		// react: "./src/react/app.js",
+		// ng: "./src/angular/app.js",
+		// ng2: "./src/angular2/app.js",
+		// vue: "./src/vue/app.js"	
+	},
     output: {
+        filename: "[name].bundle.js",
+        chunkFilename: "[id].chunk.js",
         path: path.join(__dirname, 'debug'),
-        filename: 'bundle.js',
         publicPath: '/'
     },
     module: {

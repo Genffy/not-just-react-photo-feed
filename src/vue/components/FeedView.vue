@@ -1,15 +1,16 @@
 <template>
     <div>
-        <radio-button-group class="buttons secondaryButton" v-bind:datas="columnsData" v-on:click='col' type="secondary"></radio-button-group>
-        <radio-button-group class="buttons" v-bind:datas="sortParams" v-on:click='sort' type="default"></radio-button-group>
-        <photo-grid v-bind:photos="photos" v-bind:column="column" InformationElement={InfoElement}></photo-grid>
+        <radio-button-group v-bind:datas="columnsData" v-bind:value="column" type="secondary"></radio-button-group>
+        <radio-button-group v-bind:datas="sortParams" v-bind:value="sort" type="default"></radio-button-group>
+        <photo-grid v-bind:photos="photos" v-bind:column="column"></photo-grid>
     </div>
 </template>
 <script>
-    import {loadFlickrPublicFeed, loadYandexPublicFeed} from '../actions/photos';
-    import {photoStore} from '../stores'
+    import {loadFlickrPublicFeed, loadYandexPublicFeed} from '../../common/actions/photos';
+    import {photoStore} from '../../common/stores'
     import PhotoGrid from './PhotoGrid.vue'
     import RadioButtonGroup from './RadioButtonGroup.vue'
+    import styles from './FeedView.css'
     const columnsData = [
         {value : 1, label : 'x1'},
         {value : 2, label : 'x2'},
@@ -25,30 +26,31 @@
         data () {
             return {
                 column: 2,
+                sort: null,
                 photos: {},
                 columnsData: columnsData,
-                sortParams: sortParams
+                sortParams: sortParams,
+                styles: styles
             }
         },
         components: {
             RadioButtonGroup,
             PhotoGrid
         },
-        methods: {
-            sort (event) {
-                var value = event.target.attributes.value.nodeValue
-                const [field, type] = value.split('-');
+        events: {
+            sort (data) {
+                const [field, type] = data.split('-');
                 const sign = type == 'asc' ? 1 : -1;
+                this.sort = data
                 this.photos = this.photos.slice().sort((a, b) => (+(a[field] > b[field]) || +(a[field] === b[field]) - 1) * sign);
             },
-            col (event) {
-                // get value
-                var value = parseInt(event.target.attributes.value.nodeValue)
-                this.column = value 
-            },
+            col (data) {
+                this.column = data 
+            }
+        },
+        methods: {
             change () {
                 this.photos = photoStore.getAll()
-                console.log(this.photos);
             }
         },
         created () {

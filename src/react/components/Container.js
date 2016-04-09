@@ -1,6 +1,6 @@
 import React from 'react';
-import {loadFlickrPublicFeed, loadYandexPublicFeed} from '../actions/photos';
-import {photoStore} from '../stores';
+import {loadFlickrPublicFeed, loadYandexPublicFeed} from '../../common/actions/photos';
+import {photoStore} from '../../common/stores';
 import FeedView from './FeedView';
 import styles from './Container.css';
 

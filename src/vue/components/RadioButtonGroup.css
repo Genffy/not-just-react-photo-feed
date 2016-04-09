@@ -4,8 +4,6 @@
     display:inline;
 }
 
-
-
 .buttons a {
     margin: 10px;
     /*box-shadow:0 0 10px rgba(0, 0, 0, 0.5);;*/
@@ -45,11 +43,12 @@
     background-color: rgba(0, 0, 0, 0.078) ;
     box-shadow:0 10px 6px -6px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
-.defaultButtonSelected {
+
+.defaultButtonSelected, .defaultButton .select {
     background-color: rgba(0, 0, 0, 0.2) !important;
 
 }
-.secondaryButtonSelected {
+.secondaryButtonSelected, .secondaryButton .select{
     background-color: rgb(0, 139, 161) !important;
 
 }

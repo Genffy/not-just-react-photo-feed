@@ -3,13 +3,14 @@
     <feed-view></feed-view>
 </template>
 <script>
-    
+    import styles from './Container.css'
     import FeedView from './FeedView.vue'
     export default {
         name: 'Container',
         data () {
             return {
-                photos: {}
+                photos: {},
+                styles: styles
             }
         },
         components: {

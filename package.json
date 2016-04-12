@@ -1,11 +1,15 @@
 {
-  "name": "react-photo-feed",
+  "name": "not-just-react-photo-feed",
   "version": "1.0.0",
   "description": "",
+  "repository": "https://github.com/Genffy/not-just-react-photo-feed.git",
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server --port 8081 --hot --inline --config webpack.config.debug.js --content-base debug/ ",
-    "build": "webpack --config webpack.config.production.js "
+    "startng": "webpack-dev-server --port 8081 --hot --inline --config webpack.config.debug.js --content-base ./ ",
+    "build": "webpack --config webpack.config.production.js ",
+    "postinstall": "typings install",
+    "typings": "typings"
   },
   "author": "",
   "license": "ISC",
@@ -23,17 +27,27 @@
     "jquery": "^2.2.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.14",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "concurrently": "^2.0.0",
+    "typescript": "^1.8.9",
+    "typings": "^0.7.12"
   },
   "dependencies": {
     "angular": "^1.5.3",
+    "angular2": "^2.0.0-beta.14",
     "babel-plugin-transform-runtime": "^6.7.5",
+    "es6-shim": "^0.35.0",
     "react": "^15.0.0",
     "react-dom": "^15.0.0-rc.2",
+    "reflect-metadata": "^0.1.2",
+    "rxjs": "^5.0.0-beta.2",
+    "systemjs": "^0.19.26",
+    "ts-loader": "^0.8.1",
     "vue": "^1.0.21",
     "vue-hot-reload-api": "^1.3.2",
     "vue-html-loader": "^1.2.2",
     "vue-loader": "^8.2.2",
-    "vue-style-loader": "^1.0.0"
+    "vue-style-loader": "^1.0.0",
+    "zone.js": "^0.6.10"
   }
 }

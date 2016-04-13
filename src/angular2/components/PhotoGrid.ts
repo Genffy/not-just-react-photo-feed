@@ -3,17 +3,17 @@ import {ElementRef, Input, Component} from 'angular2/core'
 import {Info} from './Info'
 
 @Component({
-	selector: "[sayhello]",
+	selector: 'PhotoGrid',
 	template:`
 		<div>
-			<div className={classNames.join(' ')} style={style} key={photo.id}>
+			<div className="" style="style" key="photo.id">
 				<div >
-					<div className={classNames.join(' ')} onClick={this.image_clickHandler(photo).bind(this)} style={style}></div>
-					<Info photo={photo}/>
+					<div className="{{[].join(' ')}}" (click)="fullShow()" style="style"></div>
+					<Info photo="{{photo}}"></Info>
 				</div>
 			</div>
-			<a href="#_" className={classNames.join(' ')} onClick={this.fullScreenImage_clickHandler.bind(this)}>
-				<img src={src} />
+			<a href="#_" className="{{[].join(' ')}}" (click)="close()">
+				<img src="{{src}}" />
 			</a>
 		</div>
 	`,
@@ -29,5 +29,11 @@ export class PhotoGrid {
 	}
 	ngOnInit(){
 		console.log("Hello PhotoGrid!");
+	}
+	fullShow(){
+		console.log("全屏显示");
+	}
+	close(){
+		console.log("关闭全屏显示");
 	}
 }

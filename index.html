@@ -2,14 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-    <title>Flickr/Yandex Public Feed</title>
-    <link rel="stylesheet" href="static/styles.css" />
+    <title>angular2</title>
+    <script src="node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>   
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="/node_modules/systemjs/dist/system-csp-production.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.dev.js"></script>
+    <script>
+      System.config({
+        meta: {
+          "src/common/actions/photos.js": {
+            format:'esm'
+          }
+        },
+        packages: {        
+          "src/angular2": {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('src/angular2/app')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
 </head>
 <body>
-<div id="container"></div>
-<script src="static/vendors.min.js"></script>
-<script src="static/app.min.js"></script>
+    <div ng-app="ng2">
+    	<photofeed></photofeed>
+    </div>
+    <!--<script src="ng2.bundle.js"></script>-->
 </body>
 </html>

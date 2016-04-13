@@ -7,7 +7,7 @@ module.exports = {
 		// basic: "./src/basic/app.js",
 		// react: "./src/react/app.js",
 		// ng: "./src/angular/app.js",
-		ng2: "./src/angular2/app.ts",
+		// ng2: "./src/angular2/app.ts",
 		// vue: "./src/vue/app.js"	
 	},
     output: {
@@ -41,7 +41,8 @@ module.exports = {
             },
             {
                 test: /\.ts$/, 
-                loader: 'ts-loader'
+                // loader: 'ts-loader'
+                loader: 'awesome-typescript-loader'
             }
         ]
     }

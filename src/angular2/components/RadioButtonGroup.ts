@@ -1,21 +1,25 @@
 import {ElementRef, Input, Component} from 'angular2/core'
 
 @Component({
-	selector: "[sayhello]",
+	selector: 'RadioButtonGroup',
 	template:`
- 		<div className={[styles.buttons, typeStyle].join(' ')}>
- 			<a key={item.value+item.label} href="#" className={className} onClick={this.onClick(item.value).bind(this)}>{item.label}</a>
+ 		<div class="{{[].join(' ')}}">
+ 			<a id="{{label}}" href="#" class="{{className}}" (click)="select()">{{label}}</a>
 		</div>
 	`
 })
 
 export class RadioButtonGroup {
-		@Input("msg") Msg: string;
+	
+	@Input("key") key: string;
 
 	constructor(el: ElementRef){
-		console.log(el, this.Msg);
+		console.log(el, this.key);
 	}
 	ngOnInit(){
 		console.log("Hello RadioButtonGroup!");
+	}
+	select(){
+		console.log("选中当前的按钮");
 	}
 }

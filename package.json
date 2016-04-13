@@ -6,10 +6,13 @@
   "main": "app.js",
   "scripts": {
     "start": "webpack-dev-server --port 8081 --hot --inline --config webpack.config.debug.js --content-base debug/ ",
-    "startng": "webpack-dev-server --port 8081 --hot --inline --config webpack.config.debug.js --content-base ./ ",
     "build": "webpack --config webpack.config.production.js ",
-    "postinstall": "typings install",
-    "typings": "typings"
+    "startng2": "tsc && concurrently \"npm run tsc:w\" \"npm run lite\" ",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "typings": "typings",
+    "postinstall": "typings install"
   },
   "author": "",
   "license": "ISC",
@@ -30,11 +33,13 @@
     "webpack-dev-server": "^1.14.1",
     "concurrently": "^2.0.0",
     "typescript": "^1.8.9",
-    "typings": "^0.7.12"
+    "typings": "^0.7.12",
+    "lite-server": "^2.2.0"
   },
   "dependencies": {
     "angular": "^1.5.3",
     "angular2": "^2.0.0-beta.14",
+    "angular2-polyfill": "0.0.21",
     "babel-plugin-transform-runtime": "^6.7.5",
     "es6-shim": "^0.35.0",
     "react": "^15.0.0",

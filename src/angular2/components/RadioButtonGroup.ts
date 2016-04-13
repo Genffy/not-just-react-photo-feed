@@ -1,25 +1,30 @@
-import {ElementRef, Input, Component} from 'angular2/core'
+import {ElementRef, Input, Component, Output, EventEmitter} from 'angular2/core'
+
+import {Button} from '../interface/buttonItem'
 
 @Component({
 	selector: 'RadioButtonGroup',
 	template:`
- 		<div class="{{[].join(' ')}}">
- 			<a id="{{label}}" href="#" class="{{className}}" (click)="select()">{{label}}</a>
+ 		<div class="buttons" [ngClass]="{secondaryButton: type=='secondary', defaultButton: type=='default'}">
+ 			<a *ngFor="#item of items" href="#" [class.selected]="item.value== value" (click)="navSelect(item)">{{item.label}}</a>
 		</div>
 	`
 })
 
 export class RadioButtonGroup {
-	
-	@Input("key") key: string;
-
+	@Input("items") items: Button[];
+    @Input("value") value: any;
+    @Input("type") type: string;
+    
+    @Output() selectRequest = new EventEmitter();
+    
 	constructor(el: ElementRef){
-		console.log(el, this.key);
+		console.log(el, this.items);
 	}
 	ngOnInit(){
 		console.log("Hello RadioButtonGroup!");
 	}
-	select(){
-		console.log("选中当前的按钮");
+	navSelect(item:Button){
+        this.selectRequest.emit({data: item, type: this.type})
 	}
 }

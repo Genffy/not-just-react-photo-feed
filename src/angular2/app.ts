@@ -1,5 +1,6 @@
 import {bootstrap}    from 'angular2/platform/browser'
 import {Container} from './components/Container'
-import { HTTP_PROVIDERS } from 'angular2/http'
+// Add all operators to Observable
+import 'rxjs/Rx'
 
-bootstrap(Container, [HTTP_PROVIDERS]);
+bootstrap(Container);

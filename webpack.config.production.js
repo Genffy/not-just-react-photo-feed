@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-
+    
     entry: {
         app: ["./src/app.js"],
         vendors: ['react', 'react-dom','jquery','flux','events']
@@ -40,7 +40,5 @@ module.exports = {
         }),
         new webpack.optimize.CommonsChunkPlugin('vendors', 'vendors.min.js',Infinity),
         new ExtractTextPlugin("styles.css"),
-
-
     ]
 }

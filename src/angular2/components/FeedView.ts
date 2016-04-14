@@ -4,11 +4,8 @@ import {RadioButtonGroup} from './RadioButtonGroup'
 import {PhotoGrid} from './PhotoGrid'
 import {Button} from '../interface/buttonItem'
 import {Photo} from '../interface/photo'
-// Let TypeScript know about the special SystemJS __moduleName variable
-declare var __moduleName: string
 
 @Component({
-    moduleId: __moduleName,
     selector: 'FeedView',
 	template:`
 		<div>
@@ -17,7 +14,7 @@ declare var __moduleName: string
            	<PhotoGrid [photos]="sortedPhotos" [columns]="columns" InformationElement="InfoElement"></PhotoGrid>
         </div>
 	`,
-    styleUrls:['./FeedView.css'],
+    //styleUrls:['./FeedView.css'],
     directives: [RadioButtonGroup,PhotoGrid]    
 })
 export class FeedView {

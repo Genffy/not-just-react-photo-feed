@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>angular2</title>
+    <script src="../node_modules/es6-shim/es6-shim.min.js"></script>
+    <script src="../node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="../node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>   
+    <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="../node_modules/systemjs/dist/system-csp-production.js"></script>
+    <script src="../node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="../node_modules/angular2/bundles/http.dev.js"></script>
+    <link rel="stylesheet" href="app.css">
+    <script>
+      System.config({
+        meta: {
+          "../src/common/actions/photos.js": {
+            format:'esm'
+          }
+        },
+        packages: {        
+          "../src/angular2": {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+      System.import('../src/angular2/app')
+            .then(null, console.error.bind(console));
+    </script>
+  </head>
+</head>
+<body>
+  <photofeed></photofeed>
+</body>
+</html>

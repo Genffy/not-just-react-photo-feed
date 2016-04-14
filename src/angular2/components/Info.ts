@@ -1,11 +1,7 @@
 import {ElementRef, Input, Component} from 'angular2/core';
 import {Photo} from '../interface/photo'
 
-// Let TypeScript know about the special SystemJS __moduleName variable
-declare var __moduleName: string
-
 @Component({
-	moduleId: __moduleName,
 	selector: 'Info',
 	template:`
 		<div class="info">
@@ -15,7 +11,7 @@ declare var __moduleName: string
             <p>tags: {{photo?.tags}}</p>
         </div>
 	`,
-	styleUrls:['./Info.css']
+	//styleUrls:['./Info.css']
 })
 
 export class Info {

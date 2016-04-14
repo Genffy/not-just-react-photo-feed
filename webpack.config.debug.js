@@ -2,7 +2,6 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-    devtool: 'eval',
 	entry: {
 		basic: "./src/basic/app.js",
 		react: "./src/react/app.js",
@@ -16,9 +15,9 @@ module.exports = {
         path: path.join(__dirname, 'debug'),
         publicPath: '/'
     },
-    devtool: 'source-map',
+    devtool: 'cheap-module-eval-source-map',
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.js']
+        extensions: ['', '.ts', '.webpack.js', '.web.js', '.js']
     },
     module: {
         loaders: [

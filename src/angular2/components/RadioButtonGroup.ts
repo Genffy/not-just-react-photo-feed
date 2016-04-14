@@ -1,18 +1,14 @@
 import {ElementRef, Input, Component, Output, EventEmitter} from 'angular2/core'
 
 import {Button} from '../interface/buttonItem'
-// Let TypeScript know about the special SystemJS __moduleName variable
-declare var __moduleName: string
-
 @Component({
-	moduleId: __moduleName,
 	selector: 'RadioButtonGroup',
 	template:`
  		<div class="buttons" [ngClass]="{secondaryButton: type=='secondary', defaultButton: type=='default'}">
  			<a *ngFor="#item of items" href="#" [class.selected]="item.value== value" (click)="navSelect(item)">{{item.label}}</a>
 		</div>
 	`,
-	styleUrls: ['./RadioButtonGroup.css'],
+	//styleUrls: ['./RadioButtonGroup.css'],
 })
 
 export class RadioButtonGroup {

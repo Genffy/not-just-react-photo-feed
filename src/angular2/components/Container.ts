@@ -7,11 +7,7 @@ import {PhotoService} from '../services/photo'
 import {FeedView} from './FeedView'
 import {Photo} from '../interface/photo'
 
-// Let TypeScript know about the special SystemJS __moduleName variable
-declare var __moduleName: string
-
 @Component({
-	moduleId: __moduleName,
 	selector: 'photofeed',
 	template:`
 		<div>
@@ -19,7 +15,7 @@ declare var __moduleName: string
             <FeedView [photos]="photos"></FeedView>
         </div>
 	`,
-	styleUrls:['./Container.css'],
+	//styleUrls:['./Container.css'],
 	directives: [FeedView],
 	providers: [
 		HTTP_PROVIDERS,

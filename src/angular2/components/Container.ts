@@ -7,7 +7,11 @@ import {PhotoService} from '../services/photo'
 import {FeedView} from './FeedView'
 import {Photo} from '../interface/photo'
 
+// Let TypeScript know about the special SystemJS __moduleName variable
+declare var __moduleName: string
+
 @Component({
+	moduleId: __moduleName,
 	selector: 'photofeed',
 	template:`
 		<div>
@@ -15,6 +19,7 @@ import {Photo} from '../interface/photo'
             <FeedView [photos]="photos"></FeedView>
         </div>
 	`,
+	styleUrls:['./Container.css'],
 	directives: [FeedView],
 	providers: [
 		HTTP_PROVIDERS,
@@ -27,20 +32,13 @@ export class Container implements OnInit{
 	photos: Observable<Photo[]>;
 	@Input("msg") msg: string;
 	errMsg: string;
-	constructor(private _photoService: PhotoService){
-		console.log(this.msg);
-	}
+	constructor(private _photoService: PhotoService){}
 	ngOnInit(){
-		console.log("Hello Contailer!");
 		this.getPhoto();
 	}
 	getPhoto(){
 		this._photoService.getAll().subscribe((res)=>{
             this.photos=res[0].concat(res[1])
         })
-	}
-	change() {
-
-		console.log("chang event")
 	}
 }

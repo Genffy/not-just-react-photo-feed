@@ -4,9 +4,12 @@ import {RadioButtonGroup} from './RadioButtonGroup'
 import {PhotoGrid} from './PhotoGrid'
 import {Button} from '../interface/buttonItem'
 import {Photo} from '../interface/photo'
+// Let TypeScript know about the special SystemJS __moduleName variable
+declare var __moduleName: string
 
 @Component({
-	selector: 'FeedView',
+    moduleId: __moduleName,
+    selector: 'FeedView',
 	template:`
 		<div>
             <RadioButtonGroup [items]="columnsData" [value]="columns" (selectRequest)="btnClick($event)" type="secondary"></RadioButtonGroup>
@@ -14,7 +17,8 @@ import {Photo} from '../interface/photo'
            	<PhotoGrid [photos]="sortedPhotos" [columns]="columns" InformationElement="InfoElement"></PhotoGrid>
         </div>
 	`,
-	directives: [RadioButtonGroup,PhotoGrid]    
+    styleUrls:['./FeedView.css'],
+    directives: [RadioButtonGroup,PhotoGrid]    
 })
 export class FeedView {
     columnsData = [
@@ -33,15 +37,9 @@ export class FeedView {
     sortedPhotos: Photo[];
     
 	@Input("photos") photos: Photo[];
-	constructor(el: ElementRef){
-		
-	}
-    initData() {
-        
-    }
+	constructor(el: ElementRef){}
 	ngOnInit(){
         // 初始化数据
-        this.initData()
 		this.columns = '3'
 	}
     ngOnChanges(){

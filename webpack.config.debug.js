@@ -4,11 +4,11 @@ var webpack = require('webpack');
 module.exports = {
     devtool: 'eval',
 	entry: {
-		// basic: "./src/basic/app.js",
-		// react: "./src/react/app.js",
+		basic: "./src/basic/app.js",
+		react: "./src/react/app.js",
 		// ng: "./src/angular/app.js",
-		// ng2: "./src/angular2/app.ts",
-		// vue: "./src/vue/app.js"	
+		ng2: "./src/angular2/app.ts",
+		vue: "./src/vue/app.js"	
 	},
     output: {
         filename: "[name].bundle.js",

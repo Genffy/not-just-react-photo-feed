@@ -2,8 +2,11 @@ import {ElementRef, Input, Component} from 'angular2/core'
 
 import {Info} from './Info'
 import {Photo} from '../interface/photo'
+// Let TypeScript know about the special SystemJS __moduleName variable
+declare var __moduleName: string
 
 @Component({
+	moduleId: __moduleName,
 	selector: 'PhotoGrid',
 	template:`
 		<div>
@@ -16,6 +19,7 @@ import {Photo} from '../interface/photo'
 			</a>
 		</div>
 	`,
+	styleUrls:['./PhotoGrid.css'],
 	directives: [Info]
 })
 
@@ -26,9 +30,7 @@ export class PhotoGrid {
     bigSrc: string;
     isHide: boolean;
     
-	constructor(el: ElementRef){
-		console.log(el, this.columns)
-	}
+	constructor(el: ElementRef){}
 	ngOnInit(){
         this.bigSrc = ''
         this.isHide = true
